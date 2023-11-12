@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useQuery, gql } from '@apollo/client'
+import PlanCard from './components/planCard'
 
-function App() {
+const GET_PLANS = gql`
+  query Plans {
+    plans {
+      id
+      planName
+      priceInCents
+    }
+  }
+`
+
+export default function App() {
+  const { loading, error, data } = useQuery(GET_PLANS)
+  console.log(data)
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error</p>
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data.plans.map(({ id, planName, priceInCents }) => (
+        <PlanCard key={id} planName={planName} priceInCents={priceInCents} />
+      ))}
     </div>
-  );
+  )
 }
-
-export default App;
