@@ -1,26 +1,23 @@
-import { useQuery, gql } from '@apollo/client'
-import PlanCard from './components/planCard'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/navbar'
+import Home from './components/home'
+import Plans from './components/plans'
+import AboutMe from './components/aboutMe'
+import styled from 'styled-components'
 
-const GET_PLANS = gql`
-  query Plans {
-    plans {
-      id
-      planName
-      priceInCents
-    }
-  }
-`
+const PageContainer = styled.div``
 
 export default function App() {
-  const { loading, error, data } = useQuery(GET_PLANS)
-  console.log(data)
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error</p>
   return (
-    <div>
-      {data.plans.map(({ id, planName, priceInCents }) => (
-        <PlanCard key={id} planName={planName} priceInCents={priceInCents} />
-      ))}
-    </div>
+    <PageContainer>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='plans' element={<Plans />} />
+          <Route path='/about' element={<AboutMe />} />
+        </Routes>
+      </BrowserRouter>
+    </PageContainer>
   )
 }
