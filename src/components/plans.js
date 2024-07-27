@@ -22,6 +22,7 @@ width: 100%;
 background-color: #EB8C28;
 `
 const Heading = styled.h2`
+font-family: "Salsa", cursive;
 font-size: 40px;
 text-align: center;
 `
@@ -35,7 +36,7 @@ margin-bottom: -5%;
 `
 const StyledButton = styled(PopupButton)`
 padding: 20px 50px;
-font-family: "Neucha", cursive;
+font-family: "Salsa", cursive;
 font-weight: 500;
 font-size: 30px;
 color: #fff6ea;

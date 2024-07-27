@@ -30,6 +30,7 @@ background-color: #EB8C28;
 padding: 3% 0;
 `
 const Heading = styled.h2`
+font-family: "Salsa", cursive;
 font-size: 40px;
 margin: 0;
 `
