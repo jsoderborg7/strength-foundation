@@ -1,11 +1,15 @@
 import styled from 'styled-components'
+
 const CardContainer = styled.div`
-  border: 1px solid black;
+  border: 3px solid #22466F;
+  border-radius: 5px;
   width: 250px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
+  background-color: #fff6ea;
 `
 
 const PlanCard = ({ planName, planDescription, priceInCents }) => {
