@@ -6,6 +6,7 @@ import { PopupButton } from "react-calendly";
 const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   width: 100%;
   padding: 5%;
 

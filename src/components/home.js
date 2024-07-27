@@ -1,13 +1,10 @@
 import styled from 'styled-components'
-import banner from '../assets/people-training.png'
+import useScreenSize from '../hooks/useScreenSize'
 
 const StyledContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-`
-const StyledBannerImage = styled.img`
-height: 300px;
 `
 const GreetingContainer = styled.div`
 width: 100%;
@@ -44,36 +41,65 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 40%;
+@media (width < 1000px) {
+  width: 80%
+}
+
 `
 const StyledQualificationsDiv = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 40%;
+@media (width < 1000px) {
+  width: 80%
+}
 `
 
 const Home = () => {
+  const screenSize = useScreenSize()
+console.log(screenSize)
   return (
     <StyledContainer>
       <GreetingContainer>
         <StyledGreeting>Hi! I'm Sarah</StyledGreeting>
       </GreetingContainer>
+      {screenSize.width < 1000 ?
+      <>
       <HeadingContainer>
-      <Heading>About Me</Heading>
+                <Heading>About Me</Heading>
+      </HeadingContainer>
+            <StyledBioDiv>
+        <p>With over 3 years of experience in fitness training, I am dedicated to helping clients improve their overall quality of life through injury prevention and recovery, posture correction, joint strengthening and alignment, and weight loss. My training programs incorporate a variety of exercises and techniques to ensure a functional approach to fitness. I work closely with each client to develop personalized plans that are both effective and enjoyable. Let's work together to improve your health and transform your life!</p>
+      </StyledBioDiv>
+    <HeadingContainer>
+                <Heading>Qualifications</Heading>
+      </HeadingContainer>
+      <StyledQualificationsDiv>
+        <p>BS in Exercise Physiology</p>
+        <p>ACE Certified Personal Trainer</p>
+        <p>Certified Yoga Instructor</p>
+      </StyledQualificationsDiv>
+    </>
+    :
+    <>
+          <HeadingContainer>
+        <Heading>About Me</Heading>
       <Heading>Qualifications</Heading>
       </HeadingContainer>
       <StyledAboutMeDiv>
       <StyledBioDiv>
-        
-      <p>With over 3 years of experience in fitness training, I am dedicated to helping clients improve their overall quality of life through injury prevention and recovery, posture correction, joint strengthening and alignment, and weight loss. My training programs incorporate a variety of exercises and techniques to ensure a functional approach to fitness. I work closely with each client to develop personalized plans that are both effective and enjoyable. Let's work together to improve your health and transform your life!</p>
+        <p>With over 3 years of experience in fitness training, I am dedicated to helping clients improve their overall quality of life through injury prevention and recovery, posture correction, joint strengthening and alignment, and weight loss. My training programs incorporate a variety of exercises and techniques to ensure a functional approach to fitness. I work closely with each client to develop personalized plans that are both effective and enjoyable. Let's work together to improve your health and transform your life!</p>
       </StyledBioDiv>
-
       <StyledQualificationsDiv>
-      <p>BS in Exercise Physiology</p>
-      <p>ACE Certified Personal Trainer</p>
-      <p>Certified Yoga Instructor</p>
+        <p>BS in Exercise Physiology</p>
+        <p>ACE Certified Personal Trainer</p>
+        <p>Certified Yoga Instructor</p>
       </StyledQualificationsDiv>
       </StyledAboutMeDiv>
+    </>
+    }
+
     </StyledContainer>
   )
 }
