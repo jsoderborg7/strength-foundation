@@ -15,9 +15,12 @@ font-size: 75px;
 color: #EB8C28;
 font-family: "Salsa", cursive;
 font-weight: 600;
-font-style: normal;
 margin: 0;
 text-align: center;
+@media (width < 1000px) {
+  font-size: 60px;
+  line-height: 1.2;
+}
 `
 const HeadingContainer = styled.div`
 display: flex;
@@ -30,6 +33,10 @@ const Heading = styled.h2`
 font-family: "Salsa", cursive;
 font-size: 40px;
 margin: 0;
+@media (width < 1000px) {
+  font-size: 30px;
+  line-height: 1.2;
+}
 `
 const StyledAboutMeDiv = styled.div`
 display: flex;

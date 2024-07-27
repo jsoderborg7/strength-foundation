@@ -26,6 +26,10 @@ const Heading = styled.h2`
 font-family: "Salsa", cursive;
 font-size: 40px;
 text-align: center;
+@media (width < 1000px) {
+  font-size: 30px;
+  line-height: 1.2;
+}
 `
 const ButtonContainer = styled.div`
 width: 100%;
