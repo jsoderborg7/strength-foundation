@@ -12,11 +12,12 @@ align-items: center;
 width: 65%;
 margin: auto;
 background-color: #fff6ea;
-opacity: 95%;
+opacity: 85%;
 @media (width < 1000px) {
   width: 80%
 }
 `
+
 
 export default function App() {
   return (

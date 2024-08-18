@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
-  border: 3px solid #22466F;
+  border: 3px solid #F8793B;
   border-radius: 5px;
   width: 250px;
   height: 300px;

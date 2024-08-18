@@ -20,7 +20,7 @@ const PlansDiv = styled.div`
 `
 const HeadingContainer = styled.div`
 width: 100%;
-background-color: #EB8C28;
+background-color: #fff6ea;
 `
 const Heading = styled.h2`
 font-family: "Salsa", cursive;
@@ -33,7 +33,7 @@ text-align: center;
 `
 const ButtonContainer = styled.div`
 width: 100%;
-background-color: #EB8C28;
+background-color: #fff6ea;
 display: flex;
 justify-content: center;
 padding: 5% 0;
@@ -45,8 +45,8 @@ font-family: "Salsa", cursive;
 font-weight: 500;
 font-size: 30px;
 color: #fff6ea;
-background-color: #22466F;
-border: 3px solid #22466F;
+background-color: #F8793B;
+border: 3px solid #F8793B;
 border-radius: 5px;
 cursor: pointer;
 `
