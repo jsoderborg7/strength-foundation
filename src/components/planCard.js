@@ -7,25 +7,45 @@ const CardContainer = styled.div`
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
   background-color: #fff6ea;
   text-align: center;
   margin: 10px;
 `
+const OptionContainer = styled.div`
+width: 100%;
+display: flex;
+justify-content: space-evenly;
+`
+const StyledPlanName = styled.h2`
+font-size: 18px;
+`
 
-const PlanCard = ({ planName, planDescription, priceInCents }) => {
+const PlanCard = ({ planName, option1, option2, option3, priceOption1, priceOption2, priceOption3 }) => {
   let USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   })
-  const prettyMoney = USDollar.format(priceInCents / 100)
+  const prettyMoney = (price) =>{
+    return USDollar.format(price / 100)
+  }
+
   return (
     <CardContainer>
-      <h2>{planName}</h2>
-      <p>{planDescription}</p>
-      <p>{prettyMoney}</p>
+      <StyledPlanName>{planName}</StyledPlanName>
+      <OptionContainer>
+      <p>{option1}</p>
+      <p>{prettyMoney(priceOption1)}</p>
+      </OptionContainer>
+      <OptionContainer>
+      <p>{option2}</p>
+      <p>{prettyMoney(priceOption2)}</p>
+      </OptionContainer>
+      <OptionContainer>
+      <p>{option3}</p>
+      <p>{prettyMoney(priceOption3)}</p>
+      </OptionContainer>
     </CardContainer>
   )
 }

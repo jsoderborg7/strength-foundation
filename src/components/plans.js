@@ -55,8 +55,12 @@ const GET_PLANS = gql`
     plans {
       id
       planName
-      description
-      priceInCents
+      option1
+      option2
+      option3
+      priceOption1
+      priceOption2
+      priceOption3
     }
   }
 `
@@ -72,12 +76,16 @@ const Plans = () => {
       <Heading>Let's work together!</Heading>
       </HeadingContainer>
       <Container>
-        {data.plans.map(({ id, planName, description, priceInCents }) => (
+        {data.plans.map(({ id, planName, option1, option2, option3, priceOption1, priceOption2, priceOption3 }) => (
           <PlanCard
             key={id}
             planName={planName}
-            priceInCents={priceInCents}
-            planDescription={description}
+            option1={option1}
+            option2={option2}
+            option3={option3}
+            priceOption1={priceOption1}
+            priceOption2={priceOption2}
+            priceOption3={priceOption3}
           />
         ))}
       </Container>
