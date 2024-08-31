@@ -54,6 +54,7 @@ const GET_PLANS = gql`
   query Plans {
     plans {
       id
+      planId
       planName
       option1
       option2
@@ -67,7 +68,7 @@ const GET_PLANS = gql`
 
 const Plans = () => {
   const { loading, error, data } = useQuery(GET_PLANS)
-  console.log(data)
+  const plans = data && data.plans.slice().sort((a, b) => a.planId - b.planId)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error</p>
   return (
@@ -76,7 +77,7 @@ const Plans = () => {
       <Heading>Let's work together!</Heading>
       </HeadingContainer>
       <Container>
-        {data.plans.map(({ id, planName, option1, option2, option3, priceOption1, priceOption2, priceOption3 }) => (
+        {plans.map(({ id, planName, option1, option2, option3, priceOption1, priceOption2, priceOption3 }) => (
           <PlanCard
             key={id}
             planName={planName}
